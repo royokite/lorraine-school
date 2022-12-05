@@ -26,7 +26,7 @@ Student.create([
         password: 23406979 
     },
     {
-        first_name: Faker::Name.first_name,
+        firstname: Faker::Name.first_name,
         lastname: Faker::Name.last_name,
         age: 20,
         contact: 701234545,
@@ -43,4 +43,27 @@ Student.create([
         email: Faker::Address.street_name,
         password: 23406979 
     },
+])
+
+Course.create([
+    {
+        course_name: "c++ programming",
+        school_yr: 2,
+        course_desc: "basic of c++ programming",
+    },
+    {
+        course_name: "data structures",
+        school_yr: 3,
+        course_desc: "understanding data structures",
+    },
+    {
+        course_name: "python programming",
+        school_yr: 3,
+        course_desc: "data mining using python programming",
+    },
+    {
+        course_name: "Introduction to programming",
+        school_yr: 1,
+        course_desc: "basics of computer programming",
+    }
 ])
