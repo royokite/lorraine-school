@@ -5,3 +5,42 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Student.create([
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: 20,
+        contact: 701234545,
+        gender: Faker::Gender.binary_type, 
+        email: Faker::Address.street_name,
+        password: 23406979 
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: 20,
+        contact: 701234545,
+        gender: Faker::Gender.binary_type, 
+        email: Faker::Address.street_name,
+        password: 23406979 
+    },
+    {
+        first_name: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        age: 20,
+        contact: 701234545,
+        gender: Faker::Gender.binary_type, 
+        email: Faker::Address.street_name,
+        password: 23406979 
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: 20,
+        contact: 701234545,
+        gender: Faker::Gender.binary_type, 
+        email: Faker::Address.street_name,
+        password: 23406979 
+    },
+])
