@@ -5,7 +5,6 @@ class CreateInstructors < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :age
       t.boolean :gender
-      t.integer :grade
       t.string :ins_email
       t.timestamps
     end
