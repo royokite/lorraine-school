@@ -36,7 +36,7 @@ class StudentsController < ApplicationController
     private
 
     def student_params
-        params.permit(:firstname, :lastname, :age, :contact, :gender, :email, :password)
+        params.permit(:firstname, :lastname, :age, :stud_id, :gender, :stud_email, :grade)
     end
 
     def record_not_found

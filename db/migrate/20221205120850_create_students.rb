@@ -8,6 +8,7 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.boolean :gender
       t.integer :grade
       t.string :stud_email
+      t.integer :ins_id
       t.timestamps
     end
   end
