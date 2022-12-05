@@ -9,8 +9,6 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_222440) do
   create_table "courses", force: :cascade do |t|
     t.integer "course_id"
     t.string "course_name"
@@ -45,13 +43,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_222440) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.integer "age"
-    t.integer "contact"
-    t.string "gender"
-    t.string "email"
-    t.string "password"
+    t.integer "stud_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "age"
+    t.boolean "gender"
+    t.integer "grade"
+    t.string "stud_email"
+    t.integer "ins_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.integer "sub_id"
+    t.string "sub_name"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "trans_id"
+    t.string "trans_name"
+    t.integer "stud_id"
+    t.date "trans_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
