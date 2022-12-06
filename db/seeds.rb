@@ -48,7 +48,7 @@ Student.create([
     },
 ])
 
-Course.create!([
+Course.create([
     {
         course_name: "c++ programming",
         course_yr: 2,
