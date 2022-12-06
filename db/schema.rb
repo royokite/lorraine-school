@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_212013) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_212655) do
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
     t.integer "course_yr"
@@ -30,7 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_212013) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.integer "sched_id"
     t.integer "course_id"
     t.integer "instructor_id"
     t.integer "subject_id"
@@ -55,7 +54,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_212013) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.integer "sub_id"
     t.string "sub_name"
     t.integer "course_id"
     t.datetime "created_at", null: false
@@ -63,7 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_212013) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "trans_id"
     t.string "trans_name"
     t.integer "stud_id"
     t.date "trans_date"
