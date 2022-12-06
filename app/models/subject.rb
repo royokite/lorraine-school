@@ -1,4 +1,5 @@
 class Subject < ApplicationRecord
     belongs_to :course
-    belongs_to :student, through: :schedule
+    has_many :schedules
+    has_many :students, through: :schedules
 end

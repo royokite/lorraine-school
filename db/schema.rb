@@ -10,17 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_061733) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_133643) do
+  create_table "courses", force: :cascade do |t|
+    t.string "course_name"
+    t.integer "course_yr"
+    t.string "course_desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "instructors", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
     t.string "gender"
-    t.integer "age"
-    t.integer "contact"
     t.string "email"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "ins_id"
+    t.integer "sub_id"
+    t.integer "stud_id"
+    t.string "day"
+    t.time "time_start"
+    t.time "time_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "student_id"
+    t.integer "instructor_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -36,7 +56,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_061733) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.integer "sub_id"
     t.string "sub_name"
     t.integer "course_id"
     t.datetime "created_at", null: false
@@ -44,7 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_061733) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "trans_id"
     t.string "trans_name"
     t.integer "stud_id"
     t.date "trans_date"

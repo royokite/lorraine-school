@@ -1,4 +1,4 @@
 class Student < ApplicationRecord
-    # belongs_to :instructors
-    # has_many :subjects
+    has_many :schedules
+    has_many :instructors, through: :schedules
 end
