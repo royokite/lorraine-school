@@ -1,4 +1,4 @@
-class InstructorController < ApplicationController
+class InstructorsController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
@@ -35,7 +35,7 @@ class InstructorController < ApplicationController
 
     private
 
-    def instructors_params
+    def instructor_params
         params.permit(:firstname, :lastname, :gender, :age, :contact, :email, :password)
     end
 
