@@ -1,14 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 
 function SignUpForm() {
+    const[username, setUsername] = useState("")
+    const[email, setEmail] = useState("")
+    const[password, setPassword] = useState("")
+    const[confirmPassword, setConfirmPassword] = useState("")
+    
     return (
-        <form>
+        <form className="bg-gradient-to-l hover:bg-gradient-to-r">
             <hr />
             <article>
                 <label htmlFor="username">Username</label>
                 <input 
                     id="username"
                     type="text" 
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
             </article>
             <article>
@@ -16,6 +23,8 @@ function SignUpForm() {
                 <input 
                     id="email" 
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
             </article>
             <article>
@@ -23,6 +32,8 @@ function SignUpForm() {
                 <input 
                     id="password" 
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
             </article>
             <article>
@@ -30,6 +41,8 @@ function SignUpForm() {
                 <input 
                     id="confirm_password" 
                     type="confirm_password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                 />
             </article>
             <article>
