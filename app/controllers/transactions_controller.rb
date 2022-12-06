@@ -27,7 +27,7 @@ class TransactionsController < ApplicationController
     private
 
     def transaction_params
-        params.permit(:trans_id, :trans_name, :stud_id, :trans_date)
+        params.permit(:transaction_id, :transaction_name, :student_id, :trans_date)
     end
 
     def find_ transaction
