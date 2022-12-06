@@ -1,3 +1,4 @@
 class Student < ApplicationRecord
-    belongs_to :instructor
+    belongs_to :instructors
+    has_many :subjects
 end
