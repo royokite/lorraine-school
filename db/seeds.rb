@@ -1,7 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
-puts "🌱 Seeding spices..."
+puts "🌱 Seeding..."
 
 Student.destroy_all
 Course.destroy_all
@@ -70,5 +70,36 @@ Course.create([
         course_desc: "basics of computer programming",
     }
 ])
+
+Instructor.create([
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: Faker::Address.street_name,
+        password: 23406979 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: Faker::Address.street_name,
+        password: 23406979 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: Faker::Address.street_name,
+        password: 23406979 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: Faker::Address.street_name,
+        password: 23406979 
+    }
+]) 
 
 puts "✅ Done seeding!"
