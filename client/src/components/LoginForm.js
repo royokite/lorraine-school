@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function LoginForm() {
+function LoginForm({ onSelectForm }) {
     const[username, setUsername] = useState("")
     const[password, setPassword] = useState("")
 
@@ -45,6 +45,8 @@ function LoginForm() {
                 <article>
                     <button type="submit">Login</button>
                 </article>
+                <hr />
+                <p className="mt-3">Don't have an account? <button onClick={() => onSelectForm(false)} className="float-right">Sign Up</button></p>   
             </form>
         </section>
     );
