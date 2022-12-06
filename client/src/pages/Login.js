@@ -10,8 +10,8 @@ function Login() {
         display: "block", 
         marginLeft: "auto", 
         marginRight: "auto", 
-        marginBottom: "3rem",
-        paddingTop: "1rem"
+        marginBottom: "2rem",
+        paddingTop: "1rem",
     }
 
     const[selectForm, setSelectForm] = useState(true)

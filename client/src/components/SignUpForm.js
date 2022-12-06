@@ -30,7 +30,7 @@ function SignUpForm({ onSelectForm }) {
 
     return (
         <section className="grid justify-center">
-            <form onSubmit={handleSubmit} className="w-auto">
+            <form onSubmit={handleSubmit} className="w-auto p-4">
                 <hr />
                 <article>
                     <label htmlFor="username">Username</label>

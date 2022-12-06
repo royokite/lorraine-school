@@ -19,16 +19,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_133643) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "instructors", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "gender"
-    t.string "email"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "schedules", force: :cascade do |t|
     t.integer "course_id"
     t.integer "ins_id"
