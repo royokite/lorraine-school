@@ -5,54 +5,74 @@ function SignUpForm() {
     const[email, setEmail] = useState("")
     const[password, setPassword] = useState("")
     const[confirmPassword, setConfirmPassword] = useState("")
-    
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const newUser = {
+            username,
+            email,
+            password,
+            confirm_password: confirmPassword
+        };
+        fetch("/signup", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newUser)
+        })
+        .then((response) => {
+            if(response.ok) {
+                response.json().then((user) => console.log(user))
+            } else {
+                response.json().then((error) => console.log(error))
+            }
+        });
+    }
+
     return (
-        <form className="bg-gradient-to-l hover:bg-gradient-to-r">
-            <hr />
-            <article>
-                <label htmlFor="username">Username</label>
-                <input 
-                    id="username"
-                    type="text" 
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-            </article>
-            <article>
-                <label htmlFor="email">Email</label>
-                <input 
-                    id="email" 
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </article>
-            <article>
-                <label htmlFor="password">Password</label>
-                <input 
-                    id="password" 
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </article>
-            <article>
-                <label htmlFor="confirm_password">Confirm Password</label>
-                <input 
-                    id="confirm_password" 
-                    type="confirm_password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-            </article>
-            <article>
-                <button>Sign Up</button>
-            </article>
-            <hr />
-            <article>
-                <p>Already have an account? &nbsp;<button>Login</button></p>                
-            </article>
-        </form>
+        <section className="grid justify-center">
+            <form onSubmit={handleSubmit} className="w-auto">
+                <hr />
+                <article>
+                    <label htmlFor="username">Username</label>
+                    <input 
+                        id="username"
+                        type="text" 
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </article>
+                <article>
+                    <label htmlFor="email">Email</label>
+                    <input 
+                        id="email" 
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </article>
+                <article>
+                    <label htmlFor="password">Password</label>
+                    <input 
+                        id="password" 
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </article>
+                <article>
+                    <label htmlFor="confirm_password">Confirm Password</label>
+                    <input 
+                        id="confirm_password" 
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                </article>
+                <article>
+                    <button type="submit">Sign Up</button>
+                </article>
+            </form>
+        </section>
     );
 
 }
