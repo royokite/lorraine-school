@@ -162,7 +162,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  active_model_serializers (= 0.9.3)
+  active_model_serializers
   debug
   faker
   puma (~> 5.0)
