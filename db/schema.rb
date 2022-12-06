@@ -35,4 +35,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_061733) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "subjects", force: :cascade do |t|
+    t.integer "sub_id"
+    t.string "sub_name"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "trans_id"
+    t.string "trans_name"
+    t.integer "stud_id"
+    t.date "trans_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
