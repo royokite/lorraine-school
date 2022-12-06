@@ -1,3 +1,3 @@
-class InstruictorsSerializer < ActiveModel::Serializer
+class InstructorSerializer < ActiveModel::Serializer
   attributes :id, :firstname, :lastname, :gender, :age, :contact, :email, :password
 end
