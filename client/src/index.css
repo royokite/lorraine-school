@@ -9,6 +9,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-image: url("../public/images/bg2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 code {
@@ -57,4 +63,9 @@ button {
 
 button:hover {
   background-color: #6366f1;
+}
+
+hr {
+  border: 1px solid #6366f1;
+  border-radius: 5px;
 }
