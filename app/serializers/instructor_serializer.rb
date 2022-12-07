@@ -4,4 +4,5 @@ class InstructorSerializer < ActiveModel::Serializer
   has_many :schedules
   has_many :courses
   has_many :students
+  has_many :subjects
 end

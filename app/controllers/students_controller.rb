@@ -39,7 +39,7 @@ class StudentsController < ApplicationController
     end
 
     def record_not_found
-        render json: {message: "Student does not exist!"}, status: 404
+        render json: { error: "Student does not exist!" }, status: 404
     end
 
     def record_invalid(invalid)

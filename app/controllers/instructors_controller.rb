@@ -25,7 +25,7 @@ class InstructorsController < ApplicationController
     def destroy
         instructor = find_instructor
         instructor.destroy
-        render json: {message: "Deleted successfully"}, status: :ok
+        head :no_content
     end
 
     private
@@ -39,7 +39,7 @@ class InstructorsController < ApplicationController
     end
 
     def record_not_found
-        render json: { message: "Instructor does not exist!" }, status: :not_found
+        render json: { error: "Instructor does not exist!" }, status: :not_found
     end
 
     def record_invalid(invalid)
