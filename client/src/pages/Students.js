@@ -12,7 +12,7 @@ function Students() {
         .then(setStudents)
     }, []);
 
-    const searchedItems = students.filter((stu) => (stu.firstname + " " + stu.lastname).toLowerCase().includes(search));
+    const searchedItems = students.filter((stu) => stu.lastname.toLowerCase().includes(search));
     const renderStudents = searchedItems.map((stu) => {
         <StudentCard
             key={stu.id}

@@ -22,7 +22,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar setUser={setUser} />
       <section>
         <Routes>
           <Route exact path="/instructors" element={<Instructors />} />

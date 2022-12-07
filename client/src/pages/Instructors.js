@@ -7,12 +7,12 @@ function Instructors() {
     const[search, setSearch] = useState("");
 
     useEffect(() => {
-        fetch("/teachers")
+        fetch("/instructors")
         .then((response) => response.json())
         .then(setInstructors)
     }, []);
 
-    const searchedItems = instructors.filter((inst) => (inst.firstname + " " + inst.lastname).toLowerCase().includes(search))
+    const searchedItems = instructors.filter((inst) => inst.lastname.toLowerCase().includes(search))
     const renderInstructors = searchedItems.map((inst) => 
     <InstructorCard 
         key={inst.id}
