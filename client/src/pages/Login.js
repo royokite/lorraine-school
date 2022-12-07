@@ -16,10 +16,10 @@ function Login() {
 
     const[selectForm, setSelectForm] = useState(true)
     return (
-        <>
-            <img src="images/lorraine-logo.png" alt="school logo" style={imageStyle}/>
+        <section>
+            <img src="./images/lorraine-logo.png" alt="school logo" style={imageStyle}/>
             {selectForm ? <LoginForm onSelectForm={setSelectForm} /> : <SignUpForm onSelectForm={setSelectForm}/>}
-        </>
+        </section>
     );
 
 }
