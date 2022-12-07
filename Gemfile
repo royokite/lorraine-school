@@ -19,12 +19,17 @@ gem 'active_model_serializers', '~> 0.10.13'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 
+gem 'bcrypt', '~> 3.1.7'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
 
+group :development do
+  gem 'foreman', '~> 0.87'
+end
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-
 
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   

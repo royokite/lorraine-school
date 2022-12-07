@@ -8,5 +8,12 @@ Rails.application.routes.draw do
   resources :schedules, only: [:index, :create, :show, :update, :destroy]
   resources :courses, only: [:index, :create, :show, :update, :destroy]
   resources :subjects, only: [:index, :create, :show, :update, :destroy]
+  resources :transactions, only: [:index, :create, :show] 
+
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
+  post "/signup", to: "users#create"
+  get "/me", to: "users#show"
   
 end
