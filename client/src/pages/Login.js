@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import LoginForm from "../components/LoginForm"
 import SignUpForm from "../components/SignUpForm"
 
-function Login() {
+function Login({ onLogin }) {
     const imageStyle = {
         height: "8rem", 
         width: "10rem", 
@@ -14,11 +14,11 @@ function Login() {
         paddingTop: "1rem",
     }
 
-    const[selectForm, setSelectForm] = useState(true)
+    const [selectForm, setSelectForm] = useState(true)
     return (
         <section>
             <img src="./images/lorraine-logo.png" alt="school logo" style={imageStyle}/>
-            {selectForm ? <LoginForm onSelectForm={setSelectForm} /> : <SignUpForm onSelectForm={setSelectForm}/>}
+            {selectForm ? <LoginForm onSelectForm={setSelectForm} onLogin={onLogin} /> : <SignUpForm onSelectForm={setSelectForm} onLogin={onLogin} />}
         </section>
     );
 

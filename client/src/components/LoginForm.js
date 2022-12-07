@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 
-function LoginForm({ onSelectForm }) {
-    const[username, setUsername] = useState("")
-    const[password, setPassword] = useState("")
+function LoginForm({ onSelectForm, onLogin }) {
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [errors, setErrors] = useState([]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -13,9 +14,9 @@ function LoginForm({ onSelectForm }) {
         })
         .then((response) => {
             if(response.ok) {
-                response.json().then((user) => console.log(user))
+                response.json().then((user) => onLogin(user))
             } else {
-                response.json().then((error) => console.log(error))
+                response.json().then((error) => setErrors(error.errors))
             }
         });
     } 
@@ -44,6 +45,13 @@ function LoginForm({ onSelectForm }) {
                 </article>
                 <article>
                     <button type="submit">Login</button>
+                </article>
+                <article>
+                    {errors.map((error) => (
+                        <ul>
+                            <li key={error}>{error}</li>
+                        </ul>
+                    ))}
                 </article>
                 <hr />
                 <p className="mt-3">Don't have an account? <button onClick={() => onSelectForm(false)} className="float-right">Sign Up</button></p>   

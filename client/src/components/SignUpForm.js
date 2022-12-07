@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 
-function SignUpForm({ onSelectForm }) {
+function SignUpForm({ onSelectForm, onLogin }) {
     const[username, setUsername] = useState("")
     const[email, setEmail] = useState("")
     const[password, setPassword] = useState("")
     const[confirmPassword, setConfirmPassword] = useState("")
+    const [errors, setErrors] = useState([]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -21,9 +22,9 @@ function SignUpForm({ onSelectForm }) {
         })
         .then((response) => {
             if(response.ok) {
-                response.json().then((user) => console.log(user))
+                response.json().then((user) => onLogin(user))
             } else {
-                response.json().then((error) => console.log(error))
+                response.json().then((error) => setErrors(error.errors))
             }
         });
     }
@@ -70,6 +71,13 @@ function SignUpForm({ onSelectForm }) {
                 </article>
                 <article>
                     <button type="submit">Sign Up</button>
+                </article>
+                <article>
+                    {errors.map((error) => (
+                        <ul>
+                            <li key={error}>{error}</li>
+                        </ul>
+                    ))}
                 </article>
                 <hr />
                 <p className="mt-3">Already have an account? <button onClick={() => onSelectForm(true)} className="float-right">Login</button></p>
