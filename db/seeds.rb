@@ -112,4 +112,99 @@ Student.create([
     },
 ])
 
+Course.create([
+    {
+        course_name: Faker::Educator.course_name,
+        school_year: Faker::Number.within(range: 1..4),
+        course_description: "semseters work",
+    },
+    {
+        course_name: Faker::Educator.course_name,
+        school_year: Faker::Number.within(range: 1..4),
+        course_description: "semseters work",
+    },
+    {
+        course_name: Faker::Educator.course_name,
+        school_year: Faker::Number.within(range: 1..4),
+        course_description: "semseters work",
+    },
+    {
+        course_name: Faker::Educator.course_name,
+        school_year: Faker::Number.within(range: 1..4),
+        course_description: "semseters work",
+    },
+    {
+        course_name: Faker::Educator.course_name,
+        school_year: Faker::Number.within(range: 1..4),
+        course_description: "semseters work",
+    },
+])
+
+Subject.create([
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 3,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 1,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 1,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 2,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 4,
+    }
+])
+
+10.times do 
+    Transaction.create(transaction_name:Faker::Number.within(range: 1..4),
+    student_id: Faker::Number.within(range: 1..4),
+    transaction_date: Faker::Date.in_date_period(month: 2)
+)
+end
+
+User.create([
+    {
+        username:"carlos",
+        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
+        email:"usr1@lorraine.com"
+    },
+    {
+        username:"mike",
+        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
+        email:"usr2@lorraine.com"
+    },
+    {
+        username:"bright",
+        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
+        email:"usr3@lorraine.com"
+    },
+    {
+        username:"jude",
+        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
+        email:"usr4@lorraine.com"
+    },
+    {
+        username:"michelle",
+        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
+        email:"usr5@lorraine.com"
+    },
+])
+
+10.times do
+    Schedule.create(course_id:Faker::Number.within(range: 1..4),
+    instructor_id: Faker::Number.within(range: 1..4),
+    subject_id: Faker::Number.within(range: 1..4),
+    student_id: Faker::Number.within(range: 1..4),
+    day: Faker::Date.in_date_period(month: 2)
+    )
+end
+
 puts "✅ Done seeding!"

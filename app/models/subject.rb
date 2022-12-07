@@ -4,5 +4,5 @@ class Subject < ApplicationRecord
     has_many :students, through: :schedules
     has_many :instructors, through: :schedules
 
-    validates :name, presence: true, uniqueness: true
+    validates :subject_name, presence: true, uniqueness: true
 end
