@@ -13,7 +13,7 @@ function Students() {
     }, []);
 
     const searchedItems = students.filter((stu) => stu.lastname.toLowerCase().includes(search));
-    const renderStudents = searchedItems.map((stu) => {
+    const renderStudents = searchedItems.map((stu) => 
         <StudentCard
             key={stu.id}
             firstname={stu.firstname}
@@ -23,7 +23,7 @@ function Students() {
             gender={stu.gender}
             email={stu.email}        
         />
-    })
+    )
 
     return (
         <>
@@ -35,7 +35,7 @@ function Students() {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)} 
                         placeholder="Search..."
-                    />
+                    /> <br />
                     <article>
                         {renderStudents}
                     </article>
