@@ -75,13 +75,9 @@ function SignUpForm({ onSelectForm, onLogin }) {
                 <article>
                     <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
                 </article>
-                {/* <article>
-                    {errors.map((error) => (
-                        <ul>
-                            <li key={error}>{error}</li>
-                        </ul>
-                    ))}
-                </article> */}
+                <article>
+                    {errors.map((err) => <ul><li>{err}</li></ul>)}
+                </article>
                 <hr />
                 <p className="mt-3">Already have an account? <button onClick={() => onSelectForm(true)} className="float-right">Login</button></p>
             </form>

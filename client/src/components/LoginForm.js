@@ -19,7 +19,7 @@ function LoginForm({ onSelectForm, onLogin }) {
             if(response.ok) {
                 response.json().then((user) => onLogin(user))
             } else {
-                response.json().then((error) => setErrors(error.errors))
+                response.json().then((error) => setErrors(error.error))
             }
         });
     } 
@@ -49,13 +49,9 @@ function LoginForm({ onSelectForm, onLogin }) {
                 <article>
                     <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
                 </article>
-                {/* <article>
-                    {errors.map((error) => (
-                        <ul>
-                            <li key={error}>{error}</li>
-                        </ul>
-                    ))}
-                </article> */}
+                <article>
+                    {errors}
+                </article>
                 <hr />
                 <p className="mt-3">Don't have an account? <button onClick={() => onSelectForm(false)} className="float-right">Sign Up</button></p>   
             </form>

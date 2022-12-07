@@ -45,7 +45,7 @@ function Students() {
                     <h2>No Students Found!</h2>
                     <button as={Link} to="/students/new"></button>
                 </section>
-            )};
+            )}
         </>
     );
 }
