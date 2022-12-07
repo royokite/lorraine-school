@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import InstructorCard from "../components/InstructorCard";
 
-function Instructors() {
-    const[instructors, setInstructors] = useState([]);
+function Instructors({ instructors }) {
     const[search, setSearch] = useState("");
 
-    useEffect(() => {
-        fetch("/instructors")
-        .then((response) => response.json())
-        .then(setInstructors)
-    }, []);
-
-    const searchedItems = instructors.filter((inst) => inst.lastname.toLowerCase().includes(search))
+    const searchedItems = instructors.filter((inst) => inst.lastname.toLowerCase().includes(search) || inst.firstname.toLowerCase().includes(search))
     const renderInstructors = searchedItems.map((inst) => 
     <InstructorCard 
         key={inst.id}
+        id={inst.id}
         firstname={inst.firstname}
         lastname={inst.lastname}
         gender={inst.gender}
@@ -33,7 +27,7 @@ function Instructors() {
                         onChange={(e) => setSearch(e.target.value)}
                         placeholder="Search..."
                     /> <br />
-                    <article>
+                    <article className="grid gap-5 grid-cols-4 m-4">
                         {renderInstructors}
                     </article>         
                 </section>

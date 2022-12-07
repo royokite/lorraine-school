@@ -28,7 +28,7 @@ function NavBar({ setUser }) {
                 </NavLink>
             </article>
             <article className="mt-5 flex-none ml-auto">
-                <NavLink to="/courses" exact="true" end className="bg-gray-800 m-2 p-2 hover:bg-indigo-500" style={({ isActive }) => isActive ? activeStyle : undefined }>Dashboard</NavLink>
+                <NavLink to="/" exact="true" end className="bg-gray-800 m-2 p-2 hover:bg-indigo-500" style={({ isActive }) => isActive ? activeStyle : undefined }>Dashboard</NavLink>
                 <NavLink to="/instructors" exact="true" className="bg-gray-800 m-2 p-2 hover:bg-indigo-500" style={({ isActive }) => isActive ? activeStyle : undefined }>Instructors</NavLink>
                 <NavLink to="/students" exact="true" className="bg-gray-800 m-2 p-2 hover:bg-indigo-500" style={({ isActive }) => isActive ? activeStyle : undefined }>Students</NavLink>
                 <button className="bg-gray-800 hover:bg-indigo-500" onClick={handleLogOut}>Logout</button>
