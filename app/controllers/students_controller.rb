@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
         student = Student.find_by(params[:id])
         student.update!(student_params)
         render json: student, status: :accepted
-    end
+    endz
 
     def destroy
         student = Student.find(params[:id])
