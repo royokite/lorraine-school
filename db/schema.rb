@@ -54,7 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_212655) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "sub_name"
+    t.integer "subject_id"
+    t.string "subject_name"
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
