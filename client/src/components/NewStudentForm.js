@@ -101,7 +101,7 @@ function NewStudentForm({ setStudents }) {
                         onChange={(e) => setGender(e.target.value)}
                         style={{width: "6rem"}}
                     >
-                        <option value="Male" selected>Male</option>
+                        <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </article>

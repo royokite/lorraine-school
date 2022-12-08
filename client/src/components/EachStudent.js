@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import NewStudentForm from "./NewStudentForm";
 
 function EachStudent({ students, setStudents }) {
     const { id } = useParams();
     const navigate = useNavigate();
     const selectStudent = students.find((stu) => stu.id === Number(id));
     const { firstname, lastname, age, contact, gender, email } = selectStudent;  
+    
+    const [showForm, setShowForm] = useState(false)
 
     function handleDelete(id) {
         fetch(`/students/${id}`, {method: "DELETE"})
@@ -19,7 +22,8 @@ function EachStudent({ students, setStudents }) {
     }
 
     function handleEdit(id) {
-        console.log(id)
+        setShowForm(true)
+        console.log(students.find((stu) => stu.id === Number(id)))
     }
 
     return (
@@ -33,9 +37,10 @@ function EachStudent({ students, setStudents }) {
             </p>
             <hr className="mb-4"/>
             <article>
-                <button onClick={handleEdit}>Edit</button>
+                <button onClick={() => handleEdit(id)}>Edit</button>
                 <button onClick={() => handleDelete(id)}>Delete</button>
             </article>
+            {showForm ? <NewStudentForm />: ""}
         </article>
     );
 

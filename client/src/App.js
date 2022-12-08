@@ -12,35 +12,26 @@ import NewStudentForm from "./components/NewStudentForm";
 
 function App() {
   const [user, setUser] = useState(null)
-  const[instructors, setInstructors] = useState([]);
-  const[students, setStudents] = useState([]);
+  const [instructors, setInstructors] = useState([]);
+  const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch("/students")
-    .then((response) => response.json())
-    .then(setStudents)
-    .catch(err => console.log(err))
-  }, []);
+    Promise.all([
+      fetch("/instructors"),
+      fetch("/students"),
+      fetch("/me")
+    ])
+    .then(([respInstructors, respStudents, respUser]) => 
+    Promise.all([respInstructors.json(), respStudents.json(), respUser.json()])
+    )
+    .then(([dataInstructors, dataStudents, dataUser]) => {
+      setInstructors(dataInstructors);
+      setStudents(dataStudents);
+      setUser(dataUser)
+    });
+  }, [])
 
-  // useEffect(() => {
-  //   fetch("/instructors")
-  //   .then((response) => response.json())
-  //   .then(setInstructors)
-  // }, []);
-  
-
-  // useEffect(() => {
-  //   fetch("/me")
-  //   .then((response) => {
-  //     if(response.ok) {
-  //       response.json().then((user) => setUser(user))
-  //     }
-  //   });
-  // }, []);
-
-  // if(!user) return <Login onLogin={setUser} />;
-
-  
+  if(!user) return <Login onLogin={setUser} />;  
 
   return (
     <BrowserRouter>
