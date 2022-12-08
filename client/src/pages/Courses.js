@@ -21,7 +21,7 @@ function Courses() {
     return (
         <>
             <section>
-                <article>
+                <article className="grid gap-5 grid-cols-4 m-4">
                     {renderCourses}
                 </article>         
             </section>

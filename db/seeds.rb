@@ -3,45 +3,6 @@
 require 'faker'
 puts "🌱 Seeding..."
 
-# Course.create([
-#     {
-#         course_name: "c++ programming",
-#         course_yr: 2,
-#         course_desc: "basic of c++ programming",
-#     },
-#     {
-#         course_name: "data structures",
-#         course_yr: 3,
-#         course_desc: "understanding data structures",
-#     },
-#     {
-#         course_name: "python programming",
-#         course_yr: 3,
-#         course_desc: "data mining using python programming",
-#     },
-#     {
-#         course_name: "Introduction to programming",
-#         course_yr: 1,
-#         course_desc: "basics of computer programming",
-#     }
-# ])
-
-# inst1 = Instructor.create(
-#             firstname: Faker::Name.first_name,
-#             lastname: Faker::Name.last_name,
-#             gender: Faker::Gender.binary_type, 
-#             email: "inst1@lorraine.com",
-#             password: Faker::Alphanumeric.alphanumeric(number: 10) 
-# )
-
-# inst2 = Instructor.create(
-#             firstname: Faker::Name.first_name,
-#             lastname: Faker::Name.last_name,
-#             gender: Faker::Gender.binary_type, 
-#             email: "inst2@lorraine.com",
-#             password: Faker::Alphanumeric.alphanumeric(number: 10) 
-# )
-
 Instructor.create([
     {
         firstname: Faker::Name.first_name,
@@ -115,28 +76,28 @@ Student.create([
 Course.create([
     {
         course_name: Faker::Educator.course_name,
-        school_year: Faker::Number.within(range: 1..4),
-        course_description: "semseters work",
+        school_year: rand(1...4),
+        course_description: Faker::Marketing.buzzwords,
     },
     {
         course_name: Faker::Educator.course_name,
-        school_year: Faker::Number.within(range: 1..4),
-        course_description: "semseters work",
+        school_year: rand(1...4),
+        course_description: Faker::Marketing.buzzwords,
     },
     {
         course_name: Faker::Educator.course_name,
-        school_year: Faker::Number.within(range: 1..4),
-        course_description: "semseters work",
+        school_year: rand(1...4),
+        course_description: Faker::Marketing.buzzwords,
     },
     {
         course_name: Faker::Educator.course_name,
-        school_year: Faker::Number.within(range: 1..4),
-        course_description: "semseters work",
+        school_year: rand(1...4),
+        course_description: Faker::Marketing.buzzwords,
     },
     {
         course_name: Faker::Educator.course_name,
-        school_year: Faker::Number.within(range: 1..4),
-        course_description: "semseters work",
+        school_year: rand(1...4),
+        course_description: Faker::Marketing.buzzwords,
     },
 ])
 
@@ -151,7 +112,7 @@ Subject.create([
     },
     {
         subject_name: Faker::Educator.subject,
-        course_id: 1,
+        course_id: 5,
     },
     {
         subject_name: Faker::Educator.subject,
@@ -164,46 +125,20 @@ Subject.create([
 ])
 
 10.times do 
-    Transaction.create(transaction_name:Faker::Number.within(range: 1..4),
-    student_id: Faker::Number.within(range: 1..4),
-    transaction_date: Faker::Date.in_date_period(month: 2)
+    Transaction.create(
+        transaction_name: Faker::Bank.name,
+        student_id: rand(1...4),
+        transaction_date: Faker::Date.backward(days: 90)
 )
 end
 
-User.create([
-    {
-        username:"carlos",
-        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
-        email:"usr1@lorraine.com"
-    },
-    {
-        username:"mike",
-        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
-        email:"usr2@lorraine.com"
-    },
-    {
-        username:"bright",
-        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
-        email:"usr3@lorraine.com"
-    },
-    {
-        username:"jude",
-        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
-        email:"usr4@lorraine.com"
-    },
-    {
-        username:"michelle",
-        password_digest:Faker::Alphanumeric.alphanumeric(number: 10),
-        email:"usr5@lorraine.com"
-    },
-])
-
 10.times do
-    Schedule.create(course_id:Faker::Number.within(range: 1..4),
-    instructor_id: Faker::Number.within(range: 1..4),
-    subject_id: Faker::Number.within(range: 1..4),
-    student_id: Faker::Number.within(range: 1..4),
-    day: Faker::Date.in_date_period(month: 2)
+    Schedule.create(
+        course_id:rand(1...5),
+        instructor_id: rand(1...4),
+        subject_id: rand(1...5),
+        student_id: rand(1...4),
+        day: Faker::Date.forward(days: 30)
     )
 end
 

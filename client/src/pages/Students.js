@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import StudentCard from "../components/StudentCard";
 
-function Students() {
-    const[students, setStudents] = useState([]);
+function Students({ students, setStudents }) {    
     const[search, setSearch] = useState("");
 
-    useEffect(() => {
-        fetch("/students")
-        .then((response) => response.json())
-        .then(setStudents)
-    }, []);
+    // useEffect(() => {
+    //     fetch("/students")
+    //     .then((response) => response.json())
+    //     .then(setStudents)
+    // }, []);
 
     const searchedItems = students.filter((stu) => stu.lastname.toLowerCase().includes(search));
     const renderStudents = searchedItems.map((stu) => 
         <StudentCard
             key={stu.id}
+            id={stu.id}
             firstname={stu.firstname}
             lastname={stu.lastname}
             age={stu.age}
@@ -36,7 +36,7 @@ function Students() {
                         onChange={(e) => setSearch(e.target.value)} 
                         placeholder="Search..."
                     /> <br />
-                    <article>
+                    <article className="grid gap-5 grid-cols-4 m-4">
                         {renderStudents}
                     </article>
                 </section>
