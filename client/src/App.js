@@ -8,6 +8,7 @@ import Students from "./pages/Students";
 import Courses from "./pages/Courses";
 import EachInstructor from "./components/EachInstructor";
 import EachStudent from "./components/EachStudent";
+import NewStudentForm from "./components/NewStudentForm";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -51,6 +52,7 @@ function App() {
           <Route exact path="/instructors/:id" element={<EachInstructor instructors={instructors} />} />
           <Route exact path="/students" element={<Students students={students} setStudents={setStudents} />} />
           <Route exact path="/students/:id" element={<EachStudent students={students} setStudents={setStudents} />} />
+          <Route exact path="/students/new" element={<NewStudentForm setStudents={setStudents} />} />
           <Route path="*" element={<h1 className="text-indigo-900/100 text-5xl underline m-2 font-bold">404: Page Not Found!</h1>} />
         </Routes>
         

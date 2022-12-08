@@ -9,10 +9,12 @@ function EachStudent({ students, setStudents }) {
 
     function handleDelete(id) {
         fetch(`/students/${id}`, {method: "DELETE"})
+        .then(() => {
+            const updatedStudents = students.filter((stu) => stu.id !== id)
+            setStudents(updatedStudents)
+        })
         
-        // alert("This student will be deleted permanently! Proceed?")
-        const updatedStudents = students.filter((stu) => stu.id !== id)
-        setStudents(updatedStudents)
+        // alert("This student will be deleted permanently! Proceed?")        
         navigate("/students")
     }
 

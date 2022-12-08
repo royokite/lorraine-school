@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import InstructorCard from "../components/InstructorCard";
 
 function Instructors({ instructors }) {
@@ -33,8 +32,7 @@ function Instructors({ instructors }) {
                 </section>
             ) : (
                 <section>
-                    <h2>No Instructors Found!</h2>
-                    <button as={Link} to="/instructors/new">Add New Instructor</button>
+                    <h2 className="text-indigo-900/100 text-5xl underline m-2 font-bold">No Instructors Found!</h2>
                 </section>
             )}
         </>

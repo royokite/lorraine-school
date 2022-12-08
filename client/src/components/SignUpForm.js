@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 
 function SignUpForm({ onSelectForm, onLogin }) {
-    const[username, setUsername] = useState("")
-    const[email, setEmail] = useState("")
-    const[password, setPassword] = useState("")
-    const[confirmPassword, setConfirmPassword] = useState("")
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -76,7 +76,7 @@ function SignUpForm({ onSelectForm, onLogin }) {
                     <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
                 </article>
                 <article>
-                    {errors.map((err) => <ul><li>{err}</li></ul>)}
+                    {errors.length > 0 ? (errors.map((err) => <ul><li key={err}>{err}</li></ul>)) : ""}
                 </article>
                 <hr />
                 <p className="mt-3">Already have an account? <button onClick={() => onSelectForm(true)} className="float-right">Login</button></p>
