@@ -1,6 +1,4 @@
 class StudentsController < ApplicationController
-    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
     def index
         render json: Student.all, status: :ok
@@ -36,14 +34,6 @@ class StudentsController < ApplicationController
 
     def student_params
         params.permit(:firstname, :lastname, :age, :contact, :gender, :email, :password)
-    end
-
-    def record_not_found
-        render json: { error: "Student does not exist!" }, status: 404
-    end
-
-    def record_invalid(invalid)
-        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
     end
 
 end

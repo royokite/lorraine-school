@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :students, only: [:index, :create, :show, :update, :destroy ] do
+  resources :students, only: [:index, :create, :show, :update, :destroy] do
     resources :transactions, only: [:index, :create, :show]    
   end
   

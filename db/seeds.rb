@@ -31,7 +31,63 @@ Instructor.create([
         gender: Faker::Gender.binary_type, 
         email: "inst4@lorraine.com",
         password: Faker::Alphanumeric.alphanumeric(number: 10) 
-    }
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: "inst5@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10) 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: "inst6@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10) 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: "inst7@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10) 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: "inst8@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10) 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: "inst9@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10) 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: "inst10@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10) 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: "inst11@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10) 
+    },
+    {
+        firstname: Faker::Name.first_name,
+        lastname: Faker::Name.last_name,
+        gender: Faker::Gender.binary_type, 
+        email: "inst12@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10) 
+    },
 ]) 
 
 Student.create([
@@ -71,6 +127,114 @@ Student.create([
         email: "stu4@lorraine.com",
         password: Faker::Alphanumeric.alphanumeric(number: 10)  
     },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu5@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu6@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu7@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu8@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu9@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu10@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu11@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu12@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu13@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu14@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu15@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
+    {
+        firstname: Faker::Name.first_name ,
+        lastname: Faker::Name.last_name,
+        age: rand(15...28),
+        contact: Faker::PhoneNumber.cell_phone_in_e164,
+        gender: Faker::Gender.binary_type, 
+        email: "stu16@lorraine.com",
+        password: Faker::Alphanumeric.alphanumeric(number: 10)  
+    },
 ])
 
 Course.create([
@@ -99,6 +263,21 @@ Course.create([
         school_year: rand(1...4),
         course_description: Faker::Marketing.buzzwords,
     },
+    {
+        course_name: Faker::Educator.course_name,
+        school_year: rand(1...4),
+        course_description: Faker::Marketing.buzzwords,
+    },
+    {
+        course_name: Faker::Educator.course_name,
+        school_year: rand(1...4),
+        course_description: Faker::Marketing.buzzwords,
+    },
+    {
+        course_name: Faker::Educator.course_name,
+        school_year: rand(1...4),
+        course_description: Faker::Marketing.buzzwords,
+    }
 ])
 
 Subject.create([
@@ -121,23 +300,67 @@ Subject.create([
     {
         subject_name: Faker::Educator.subject,
         course_id: 4,
-    }
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 6,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 7,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 8,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 8,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 1,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 6,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 5,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 1,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 3,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 7,
+    },
+    {
+        subject_name: Faker::Educator.subject,
+        course_id: 2,
+    },
 ])
 
-10.times do 
+30.times do 
     Transaction.create(
         transaction_name: Faker::Bank.name,
-        student_id: rand(1...4),
+        student_id: rand(1...16),
         transaction_date: Faker::Date.backward(days: 90)
 )
 end
 
-10.times do
+30.times do
     Schedule.create(
-        course_id:rand(1...5),
-        instructor_id: rand(1...4),
-        subject_id: rand(1...5),
-        student_id: rand(1...4),
+        course_id:rand(1...8),
+        instructor_id: rand(1...12),
+        subject_id: rand(1...16),
+        student_id: rand(1...16),
         day: Faker::Date.forward(days: 30)
     )
 end

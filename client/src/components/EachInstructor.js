@@ -11,6 +11,7 @@ function EachInstructor({ instructors }) {
     const instStudents = students.map((stu) => 
         <StudentCard 
             key={stu.id}
+            id={stu.id}
             firstname={stu.firstname}
             lastname={stu.lastname}
             age={stu.age}
@@ -39,15 +40,15 @@ function EachInstructor({ instructors }) {
                 </p>
             </article>
             <h2 className="w-full font-bold text-slate-900/100 underline text-3xl grid justify-center">Subjects</h2>
-            <article className="grid gap-2 grid-cols-8 m-4">
+            <article className="grid gap-6 grid-cols-4 m-4 text-center">
                 {instSubjects}
             </article>
             <h2 className="w-full font-bold text-slate-900/100 underline text-3xl grid justify-center">Courses</h2>
-            <article className="grid gap-8 grid-cols-5 m-4">
+            <article className="grid gap-6 grid-cols-4 m-4">
                 {instCourses}
             </article>
             <h2 className="w-full font-bold text-slate-900/100 underline text-3xl grid justify-center">Students</h2>
-            <article className="grid gap-8 grid-cols-5 m-4">
+            <article className="grid gap-6 grid-cols-4 m-4">
                 {instStudents}
             </article>
         </section>

@@ -21,6 +21,7 @@ function Courses() {
     return (
         <>
             <section>
+                <h2 className="text-slate-900/100 text-5xl underline m-2 font-bold text-center bg-gray-800 p-2">Courses Offered</h2>
                 <article className="grid gap-5 grid-cols-4 m-4">
                     {renderCourses}
                 </article>         

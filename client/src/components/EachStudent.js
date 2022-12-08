@@ -6,7 +6,9 @@ function EachStudent({ students, setStudents }) {
     const { id } = useParams();
     const navigate = useNavigate();
     const selectStudent = students.find((stu) => stu.id === Number(id));
-    const { firstname, lastname, age, contact, gender, email } = selectStudent;  
+    const { firstname, lastname, age, contact, gender, email, transactions } = selectStudent;  
+
+    const allTransactions = transactions.map((t) => <li key={t.id}>{t.transaction_name} : {t.transaction_date}</li>)
     
     const [showForm, setShowForm] = useState(false)
 
@@ -14,7 +16,7 @@ function EachStudent({ students, setStudents }) {
         fetch(`/students/${id}`, {method: "DELETE"})
         .then(() => {
             const updatedStudents = students.filter((stu) => stu.id !== id)
-            setStudents(updatedStudents)
+            setStudents(() => updatedStudents)
         })
         
         // alert("This student will be deleted permanently! Proceed?")        
@@ -36,6 +38,9 @@ function EachStudent({ students, setStudents }) {
                 <span className="text-indigo-900/80">Contact: {contact}</span> <br />
             </p>
             <hr className="mb-4"/>
+            <h3 className="text-indigo-400/100 text-xl mb-2">Fee Transactions</h3>
+            {allTransactions}
+            <hr className="my-4"/>
             <article>
                 <button onClick={() => handleEdit(id)}>Edit</button>
                 <button onClick={() => handleDelete(id)}>Delete</button>
