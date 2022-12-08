@@ -1,46 +1,39 @@
 class InstructorsController < ApplicationController
 
-    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
     def index
-      instructors = Instructor.all
-      render json: instructors
+      render json: Instructor.all, status: :ok
     end
 
     def show
-      @instructor = Instructor.find(params[:id])
-      render json: @instructor
+      instructor = find_instructor
+      render json: instructor, status: :ok
     end
 
     def create
-        @instructor = Instructor.create!(instructor_params)
-        if @instructor.save
-            render json: @instructor, status: :created
-        else
-            render :action => "new"
-        end
+        instructor = Instructor.create!(instructor_params)
+        render json: instructor, status: :created
     end
 
     def update
-        instructor = Instructor.find(params[:id])
-        instructor.update(instructor_params)
+        instructor = find_instructor
+        instructor.update!(instructor_params)
         render json: instructor, status: :accepted
     end
 
     def destroy
-        instructor = Instructor.find(params[:id])
+        instructor = find_instructor
         instructor.destroy
-        render json: {message: "Deleted successfully"}, status: :ok
+        head :no_content
     end
 
     private
 
-    def instructor_params
-        params.permit(:firstname, :lastname, :gender, :age, :contact, :email, :password)
+    def find_instructor
+        Instructor.find(params[:id])
     end
 
-    def record_not_found
-        render json: {message: "Instructor does not exist!"}
+    def instructor_params
+        params.permit(:firstname, :lastname, :gender, :age, :contact, :email, :password)
     end
 
 end

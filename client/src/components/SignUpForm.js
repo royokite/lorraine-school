@@ -1,18 +1,21 @@
 import React, {useState} from "react";
 
-function SignUpForm({ onSelectForm }) {
-    const[username, setUsername] = useState("")
-    const[email, setEmail] = useState("")
-    const[password, setPassword] = useState("")
-    const[confirmPassword, setConfirmPassword] = useState("")
+function SignUpForm({ onSelectForm, onLogin }) {
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [errors, setErrors] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     function handleSubmit(e) {
+        setIsLoading(true);
         e.preventDefault();
         const newUser = {
             username,
             email,
             password,
-            confirm_password: confirmPassword
+            password_confirmation: confirmPassword
         };
         fetch("/signup", {
             method: "POST",
@@ -20,10 +23,11 @@ function SignUpForm({ onSelectForm }) {
             body: JSON.stringify(newUser)
         })
         .then((response) => {
+            setIsLoading(false);
             if(response.ok) {
-                response.json().then((user) => console.log(user))
+                response.json().then((user) => onLogin(user))
             } else {
-                response.json().then((error) => console.log(error))
+                response.json().then((error) => setErrors(error.errors))
             }
         });
     }
@@ -62,14 +66,17 @@ function SignUpForm({ onSelectForm }) {
                 <article>
                     <label htmlFor="confirm_password">Confirm Password</label>
                     <input 
-                        id="confirm_password" 
+                        id="password_confirmation" 
                         type="password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </article>
                 <article>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+                </article>
+                <article>
+                    {errors.length > 0 ? (errors.map((err) => <ul><li key={err}>{err}</li></ul>)) : ""}
                 </article>
                 <hr />
                 <p className="mt-3">Already have an account? <button onClick={() => onSelectForm(true)} className="float-right">Login</button></p>

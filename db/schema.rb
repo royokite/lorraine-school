@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_061733) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_121045) do
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
-    t.integer "course_yr"
-    t.string "course_desc"
+    t.integer "school_year"
+    t.string "course_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,11 +30,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_061733) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.integer "sched_id"
     t.integer "course_id"
-    t.integer "ins_id"
-    t.integer "sub_id"
-    t.integer "stud_id"
+    t.integer "instructor_id"
+    t.integer "subject_id"
+    t.integer "student_id"
     t.string "day"
     t.time "time_start"
     t.time "time_end"
@@ -55,18 +54,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_061733) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.integer "sub_id"
-    t.string "sub_name"
+    t.string "subject_name"
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "trans_id"
-    t.string "trans_name"
-    t.integer "stud_id"
-    t.date "trans_date"
+    t.string "transaction_name"
+    t.integer "student_id"
+    t.date "transaction_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

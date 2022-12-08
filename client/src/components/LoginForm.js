@@ -1,21 +1,25 @@
 import React, {useState} from "react";
 
-function LoginForm({ onSelectForm }) {
-    const[username, setUsername] = useState("")
-    const[password, setPassword] = useState("")
+function LoginForm({ onSelectForm, onLogin }) {
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [errors, setErrors] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
+        setIsLoading(true);
         fetch("/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ username, password })
         })
         .then((response) => {
+            setIsLoading(false);
             if(response.ok) {
-                response.json().then((user) => console.log(user))
+                response.json().then((user) => onLogin(user))
             } else {
-                response.json().then((error) => console.log(error))
+                response.json().then((error) => setErrors(error.error))
             }
         });
     } 
@@ -43,7 +47,10 @@ function LoginForm({ onSelectForm }) {
                     />
                 </article>
                 <article>
-                    <button type="submit">Login</button>
+                    <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
+                </article>
+                <article>
+                    {errors}
                 </article>
                 <hr />
                 <p className="mt-3">Don't have an account? <button onClick={() => onSelectForm(false)} className="float-right">Sign Up</button></p>   

@@ -1,46 +1,39 @@
 class StudentsController < ApplicationController
 
-    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
     def index
-        students = Student.all
-        render json: students
+        render json: Student.all, status: :ok
     end
 
     def show
-        @student = Student.find(params[:id])
-        render json: @student.to_json(only: [:firstname, :lastname, :id], include: [:instructors])
+        student = find_student
+        render json: student, status: :ok
     end
 
     def create
-        @student = Student.create!(student_params)
-        if @student.save
-        render json: @student, status: :created
-        else
-            render :action => "new"
-        end
+        student = Student.create!(student_params)
+        render json: student, status: :created
     end
 
     def update
-        student = Student.find_by(params[:id])
+        student = find_student
         student.update!(student_params)
         render json: student, status: :accepted
-    endz
+    end
 
     def destroy
-        student = Student.find(params[:id])
+        student = find_student
         student.destroy
-        render json: {message: "Student successfully deleted"}, status: :ok
+        head :no_content
     end
 
     private
 
-    def student_params
-        params.permit(:firstname, :lastname, :age, :contact, :gender, :email, :password)
+    def find_student
+        Student.find(params[:id])
     end
 
-    def record_not_found
-        render json: {message: "Student does not exist!"}, status: 404
+    def student_params
+        params.permit(:firstname, :lastname, :age, :contact, :gender, :email, :password)
     end
 
 end

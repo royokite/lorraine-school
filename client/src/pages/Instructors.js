@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"
+import React, { useState } from "react";
 import InstructorCard from "../components/InstructorCard";
 
-function Instructors() {
-    const[instructors, setInstructors] = useState([]);
+function Instructors({ instructors }) {
     const[search, setSearch] = useState("");
 
-    useEffect(() => {
-        fetch("/teachers")
-        .then((response) => response.json())
-        .then(setInstructors)
-    }, []);
-
-    const searchedItems = instructors.filter((inst) => (inst.firstname + " " + inst.lastname).toLowerCase().includes(search))
+    const searchedItems = instructors.filter((inst) => inst.lastname.toLowerCase().includes(search) || inst.firstname.toLowerCase().includes(search))
     const renderInstructors = searchedItems.map((inst) => 
     <InstructorCard 
         key={inst.id}
+        id={inst.id}
         firstname={inst.firstname}
         lastname={inst.lastname}
         gender={inst.gender}
@@ -33,14 +26,13 @@ function Instructors() {
                         onChange={(e) => setSearch(e.target.value)}
                         placeholder="Search..."
                     /> <br />
-                    <article>
+                    <article className="grid gap-5 grid-cols-4 m-4">
                         {renderInstructors}
                     </article>         
                 </section>
             ) : (
                 <section>
-                    <h2>No Instructors Found!</h2>
-                    <button as={Link} to="/instructors/new">Add New Instructor</button>
+                    <h2 className="text-indigo-900/100 text-5xl underline m-2 font-bold">No Instructors Found!</h2>
                 </section>
             )}
         </>
