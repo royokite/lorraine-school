@@ -44,7 +44,7 @@ A user is able to:
 
 ## Setup Instructions
 
-The project has been deployed and hosted on Render to the link [Lorraine Schhol](https://lorraine-school.onrender.com) which is a unified cloud to build and run all your apps and websites with free TLS certificates, global CDN, private networks and auto deploys from Git.
+The project has been deployed and hosted on Render to the link [Lorraine School](https://lorraine-school.onrender.com) which is a unified cloud to build and run all your apps and websites with free TLS certificates, global CDN, private networks and auto deploys from Git.
 
 On a local setting the frontend is linked to a API developed using Rails to feed it information stored using a postgresql database. <br />
 Run npm start to run the client side. <br />
