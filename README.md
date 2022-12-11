@@ -12,6 +12,8 @@ This is a school management system
 ## Installation
 - Clone the repo
 
+## Website Link
+https://lorraine-school.onrender.com
 
 ## Contributing
 Pull requests are welcome.
